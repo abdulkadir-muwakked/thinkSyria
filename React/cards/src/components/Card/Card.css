@@ -1,0 +1,61 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+}
+
+.card img{
+    height: 130px;   
+}
+
+.card .title {
+    display: -webkit-box;
+    font-weight: bolder;
+    font-size: 14pt;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    height: 45px;
+    margin: 5px 0 2px 0;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card .des {
+    display: -webkit-box;
+    font-size: 9pt;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    height: 15px;
+    margin: 5px 0 2px 0;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card .price s {
+    font-weight: 200;
+}
+
+.card .tag {
+    color: black;
+    background-color: #eceb98;
+    width: fit-content;
+    padding: 3px;
+    margin: 10px 0 0 0;
+}
+
+.card .tag h2 {
+    font-size: small;
+    margin: 0;
+}
+
+.rating{
+    display: flex;
+    flex-direction: row;
+    font-size: 10pt;
+    align-items: center;
+}
+
