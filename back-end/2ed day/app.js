@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const connection = require("./db")
+
+
+
 var indexRouter = require('./routes/index');
 var postRouter = require('./routes/post');
 var userRouter = require("./routes/user")
@@ -22,8 +26,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/post', postRouter);
-app.use('/user', userRouter);
+app.use('/posts', postRouter);
+app.use('/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,5 +44,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+connection.connect(function(err) {
+  if (err) {
+    console.error(err.message);
+    return;
+  }
+  console.log('Yay! You are connected to the database!');
+})
+
 
 module.exports = app;

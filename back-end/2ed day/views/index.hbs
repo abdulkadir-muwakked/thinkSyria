@@ -1,2 +1,10 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<ul>
+    {{#each posts}}
+    <li>
+        <p>{{this.content}}</p>
+        <span>{{this.createdAt}}</span>
+    </li>
+    {{/each}}
+</ul>
+
