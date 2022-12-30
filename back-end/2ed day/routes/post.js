@@ -10,7 +10,7 @@ router.put("/:id", postController.updatePost)
 //router.get("/:id", postController.getSinglePost)
 router.delete("/:id", postController.deletePost)
 router.get("/myposts", isAuth, postController.getMyPost)
-//router.get("/deletePost", postController.getDeletePostx)
+//router.get("/deletePost", isAuth ,postController.getDeletePost)
 
 
 

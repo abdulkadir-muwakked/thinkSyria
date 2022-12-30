@@ -75,15 +75,15 @@ const deletePost = (req, res) => {
 const updatePost = () => {};
 
 const getMyPost = (req, res) => {
-    const toekn = JSON.parse(req.headers.authorization?.split("Bearer")[1])
-  const userId = toekn.id;
+    console.log(req.user)
+    const userId = req?.user?.id
   if (!userId)
     return res.send({
       success: false,
       meg: "login first ",
       data: []
     });
-  db.query(`SELECT * FROM posts WHERE userId='${userId}'`, (err, result) => {
+  db.query(`SELECT * FROM posts WHERE userId='${userId}' AND deletedAT is NULL`, (err, result) => {
     if (result.length > 0)
       return res.send({
         success: true,

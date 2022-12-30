@@ -13,14 +13,25 @@ const isAuth = (req, res, next)=> {
                     data: []
                 })
             }
-            if(result?.length > 0) next()
+            if(result?.length > 0) {
+                req.user = {
+                    ...result[0]
+                }
+                next()
+            }
             else return res.send({
                 success: false,
                 msg: "login first",
                 data: []
             })
         })
-    }
+        
+    }else
+    return res.status(401).send({
+        success: false,
+        msg: "login first",
+        data: []
+    })
 }
 
 
